@@ -50,7 +50,7 @@
           <!-- Profile dropdown -->
           <div class="relative ">
             <div>
-              <h1 class="font-bold pl-3 pr-3 pt-1 pb-1 rounded cursor-pointer hover:bg-blue-900 bg-blue-700 text-white">Login</h1>
+              <h1 class="font-bold pl-3 pr-3 pt-1 pb-1 rounded cursor-pointer hover:bg-indigo-800 bg-indigo-500 text-white">Login</h1>
             </div>
           </div>
         </div>
@@ -72,12 +72,8 @@
   </nav>
 
   <script>
+    $("#mobile-menu").slideUp();
     $("#hammer").click(function() {
-        if($("#mobile-menu").css('display')=='block'){
-            $("#mobile-menu").hide(1000);
-        }
-        else{
-            $("#mobile-menu").show(1000);
-        }
+        $("#mobile-menu").slideToggle(500);
     });
   </script>

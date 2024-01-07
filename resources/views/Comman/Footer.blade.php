@@ -40,7 +40,7 @@
 
     </div>
     <div class="bg-black w-full text-white text-center text-sm pt-3 pb-3 font-bold">
-        © 2020 Your Company, Inc. All rights reserved.
+        © 2024 Devils Coding, Inc. All rights reserved.
     </div>
   </footer>
 
