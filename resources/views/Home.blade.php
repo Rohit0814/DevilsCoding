@@ -4,7 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Devils coding</title>
+
+    <style>
+        #list-heading{
+            display: flex;
+            justify-content: center;
+        }
+
+        #list-heading span{
+            padding: 0.5rem 2rem;
+            text-decoration: none;
+            list-style: none;
+            cursor: pointer;
+            font-weight: bolder
+
+        }
+        .selected{
+            background: white;
+        }
+    </style>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
     @vite('resources/css/app.css')
 </head>
 <body>
@@ -34,36 +56,64 @@
             </div>
 
             <div>
-                <h1 class=" text-center mt-5 mb-5 text-3xl font-extrabold">CityMart</h1>
-            <div class="flex justify-center">
-                <div class=" w-1/4 h-52 flex" style="background: url('https://imgeng.jagran.com/images/2023/sep/best%2015%20inch%20laptops%20in%20India1695872319038.jpg'); background-repeat:no-repeat; background-position:center center; background-size: cover;">
-                    <div class="w-full h-full bg-indigo-900 opacity-80 text-white font-extrabold pl-8 pt-5 text-2xl" style="clip-path: polygon(0 0, 92% 0, 21% 100%, 0% 100%);">
-                        Laptop <br> Collection<br>
-                        <a href="#" class="text-sm font-medium">Shop Now <i class="fa-solid fa-circle-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class=" w-1/4 ml-10 h-52 flex" style="background: url('https://5.imimg.com/data5/SELLER/Default/2023/1/SM/GS/DW/44069440/acce.png'); background-repeat:no-repeat; background-position:center center; background-size: cover;">
-                    <div class="w-full h-full bg-indigo-900 opacity-80 text-white font-extrabold pl-8 pt-5 text-2xl" style="clip-path: polygon(0 0, 92% 0, 21% 100%, 0% 100%);">
-                        Accessories <br> Collection<br>
-                        <a href="#" class="text-sm font-medium">Shop Now <i class="fa-solid fa-circle-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class=" w-1/4 ml-10 h-52 flex" style="background: url('https://images.shiksha.com/mediadata/shikshaOnline/mailers/2022/naukri-learning/what-is/What-is-Software-Tools.jpg'); background-repeat:no-repeat; background-position:center center; background-size: cover;">
-                    <div class="w-full h-full bg-indigo-900 opacity-80 text-white font-extrabold pl-8 pt-5 text-2xl" style="clip-path: polygon(0 0, 92% 0, 21% 100%, 0% 100%);">
-                        Software <br> Collection<br>
-                        <a href="#" class="text-sm font-medium">Shop Now <i class="fa-solid fa-circle-arrow-right"></i></a>
-                    </div>
+                <h1 class="text-center mx-auto mt-5 mb-5 pb-4 border-b-8 w-fit border-indigo-500 text-3xl font-extrabold">CityMart</h1>
+                <div class="flex justify-center">
+                    <x-card cardLabel="Laptop" cardTitle="Collection" showLink="#" cardImg="https://imgeng.jagran.com/images/2023/sep/best%2015%20inch%20laptops%20in%20India1695872319038.jpg"/>
+                    <x-card cardLabel="Accessories" cardTitle="Collection" showLink="#" cardImg="https://contentstatic.techgig.com/photo/88967885/7-laptop-accessories-every-programmer-must-buy-in-amazon-flipkart-sale.jpg?22510"/>
+                    <x-card cardLabel="Software" cardTitle="Collection" showLink="#" cardImg="https://www.creativesystem.com.np/wp-content/uploads/sites/2/2017/09/creative-software-asia.jpg" />
                 </div>
             </div>
+
+            <div class="w-full  bg-indigo-100 mt-5 pb-3">
+                <div class="text-center mx-auto pt-5 mt-5 mb-5 pb-4 border-b-8 w-fit border-indigo-500 text-3xl font-extrabold">
+                    Courses
+                </div>
+                <div id="list-heading">
+                    <span class="selected all border-2 border-b-0">All</span>
+                    <span class="website">Website</span>
+                    <span class="software">Software</span>
+                    <span class="andriod">Andriod</span>
+                </div>
+
+                @php
+                 $cTag="";   
+                @endphp
+
+                <div class="w-full test flex justify-center pt-5 pb-5 h-full bg-white">
+                    <x-course-card courseImg="https://deviniti.com/app/uploads/2018/07/DevOps-6-reasons.png" courseSubTitle="Development & Operations" courseTitle="DevOps" courseLesson="16" courseStart="#" courseTag={{$cTag}} />
+                    {{-- <x-course-card courseImg="https://deviniti.com/app/uploads/2018/07/DevOps-6-reasons.png" courseSubTitle="Development & Operations" courseTitle="DevOps" courseLesson="16" courseStart="#" courseTag="all"/>
+                    <x-course-card courseImg="https://deviniti.com/app/uploads/2018/07/DevOps-6-reasons.png" courseSubTitle="Development & Operations" courseTitle="DevOps" courseLesson="16" courseStart="#" courseTag="all"/>
+                    <x-course-card courseImg="https://deviniti.com/app/uploads/2018/07/DevOps-6-reasons.png" courseSubTitle="Development & Operations" courseTitle="DevOps" courseLesson="16" courseStart="#" courseTag="all"/>               --}}
+                </div>
             </div>
+
+
         </div>
+
+        <script>
+            $(".all").click(function (e) { 
+                $("#list-heading").children().removeClass("selected");
+                $(".all").addClass("selected");
+                
+            });
+
+            $(".website").click(function (e) { 
+                $("#list-heading").children().removeClass("selected");
+                $(".website").addClass("selected");
+            });
+
+            $(".software").click(function (e) { 
+                $("#list-heading").children().removeClass("selected");
+                $(".software").addClass("selected");
+            });
+
+            $(".andriod").click(function (e) { 
+                $("#list-heading").children().removeClass("selected");
+                $(".andriod").addClass("selected");
+            });
+        </script>
+
     @endsection
+
 </body>
-
-<script>
-    
-
-</script>
 </html>
