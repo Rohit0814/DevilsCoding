@@ -26,3 +26,5 @@ Route::get('/project',[TestController::class,'project']);
 Route::get('/contact',[TestController::class,'contact']);
 
 Route::get('/blog',[TestController::class,'blog']);
+
+Route::get('/login',[TestController::class,'login']);

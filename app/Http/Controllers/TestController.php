@@ -29,4 +29,8 @@ class TestController extends Controller
     public function blog(){
         return view('Blog');
     }
+
+    public function login(){
+        return view('Login');
+    }
 }
