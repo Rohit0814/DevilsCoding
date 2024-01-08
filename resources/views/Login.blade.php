@@ -39,7 +39,8 @@
             </div>
             <div class=" w-1/2 h-full">
                 <div class="flex justify-center">
-                    <h1 class="text-4xl font-extrabold text-white pt-10 pb-5">Login</h1>
+                    <h1 class="login-txt text-4xl font-extrabold text-white pt-10 pb-5">Login</h1>
+                    <h1 class="signup-txt text-4xl font-extrabold text-white pt-10 pb-5">Signup</h1>
                 </div>
                 <div class="w-full h-3/4 rounded-t-3xl"  style="background: rgba(0,0,0,0.2)">
                     <div class="flex justify-around bg-indigo-500 rounded-t-3xl text-white font-bold">
@@ -94,11 +95,14 @@
 
     <script>
         $(".register").hide();
+        $(".signup-txt").hide();
         $(".login-btn").click(function(){
             $(".signup-btn").removeClass("bg-indigo-900")
             $(".login-btn").addClass("bg-indigo-900");
             $(".register").fadeOut(500,function(){
                 $(".login").fadeIn(1000);
+                $(".signup-txt").hide();
+                $(".login-txt").show();
             });
             
         });
@@ -107,6 +111,8 @@
             $(".login-btn").removeClass("bg-indigo-900");
             $(".login").fadeOut(500,function(){
                 $(".register").fadeIn(1000);
+                $(".signup-txt").show();
+                $(".login-txt").hide();
             });
         });
     </script>
