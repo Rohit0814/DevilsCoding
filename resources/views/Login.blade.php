@@ -51,11 +51,9 @@
                     <div class="login">
                     <div class="w-full h-2/3 pt-5 tb-5 pl-20 r-10 flex justify-center">
                         <form action="/login" class="w-full">
-                            <label for="username" class="text-indigo-400 w-full font-semibold">Username</label><br>
-                            <input type="text" class=" w-4/5 my-2" placeholder="Enter username">
+                            <x-login-component userLabel="UserName" inputType="text" inputPlaceholder="Enter Username"/>
                             <br><br>
-                            <label for="username" class="text-indigo-400 w-full font-semibold">Password</label><br>
-                            <input type="password" class=" w-4/5 my-2" placeholder="Enter password">
+                            <x-login-component userLabel="Password" inputType="password" inputPlaceholder="Enter Password"/>
                             <br><br>
                             
                             <button class="flex justify-center w-4/5 cursor-default"><a href="" class="bg-indigo-900 hover:bg-indigo-500 text-white pl-8 pr-8 pt-2 pb-2 font-extrabold rounded-xl">Login</a></button>
@@ -69,16 +67,12 @@
                     <div class="register">
                         <div class="w-full h-full pt-2  pl-20 r-10 flex justify-center">
                             <form action="" class="w-full">
-                                <label for="username" class=" text-indigo-400 w-full font-semibold">Email Id</label><br>
-                                <input type="text" class=" w-4/5" placeholder="Enter your Email">
-                                <br><br>
-                                <label for="username" class="text-indigo-400 w-full font-semibold mt-5">Password</label><br>
-                                <input type="password" class=" w-4/5" placeholder="Enter password">
-                                <br><br>
-
-                                <label for="username" class="text-indigo-400 w-full font-semibold">Confirm Password</label><br>
-                                <input type="password" class=" w-4/5" placeholder="Enter confirm password">
-                                <br><br>
+                                <x-login-component userLabel="Email Id" inputType="email" inputPlaceholder="Enter your Email"/>
+                                <br>
+                                <x-login-component userLabel="Password" inputType="password" inputPlaceholder="Enter Password"/>
+                                <br>
+                                <x-login-component userLabel="Password" inputType="password" inputPlaceholder="Enter Confirm Password"/>
+                                <br>
                                 
                                 <button class="flex justify-center w-4/5 cursor-default"><a href="" class="bg-indigo-900 hover:bg-indigo-500 text-white pl-8 pr-8 pt-2 pb-2 font-extrabold rounded-xl">SignUp</a></button>
                             </form>   
