@@ -26,6 +26,7 @@
 </head>
 <body style="padding: 0px;margin:0px">
     <div class="flex justify-center items-center" style="background:url('https://www.presentationmagazine.com/images3/subtle-waves468.jpg');background-repeat:no-repeat;background-position:center center; background-size:cover; width:100vw; height:100vh">
+
         <div class="w-3/4 h-3/4 flex" style="background: rgba(75, 0, 130,0.5); -webkit-box-shadow: 0px 0px 14px 2px rgba(0,0,0,0.75);
         -moz-box-shadow: 0px 0px 14px 2px rgba(0,0,0,0.75);
         box-shadow: 0px 0px 14px 2px rgba(0,0,0,0.75);">
@@ -37,10 +38,26 @@
                     <p class="pl-16 pr-16 flex justify-center text-justify font-medium">Devil's Coding is a premier platform dedicated to delivering comprehensive and cutting-edge content across a spectrum of technologies. Our platform serves as a hub for both novice learners and seasoned professionals, offering a diverse range of technology-related content and state-of-the-art training programs. We take pride in providing curated and up-to-date resources, ensuring that our community stays at the forefront of the rapidly evolving technological landscape.</p> 
                 </div>
             </div>
+            
             <div class=" w-1/2 h-full">
+                <marquee width="100%" direction="left" height="30px" style="color:white">
+                    
+                    @error('userEmail')
+                        Email: <span style="color:red; font-weight:bolder">{{ $message }}</span>
+                    @enderror
+
+                    @error('userPassword')
+                        &nbsp;password: <span style="color:red; font-weight:bolder">{{ $message }}</span>
+                    @enderror
+
+                    @error('ConfirmPassword')
+                        &nbsp;confirm Password: <span style="color:red; font-weight:bolder">{{ $message }}</span>
+                    @enderror
+                    
+                    </marquee>
                 <div class="flex justify-center">
-                    <h1 class="login-txt text-4xl font-extrabold text-white pt-10 pb-5">Login</h1>
-                    <h1 class="signup-txt text-4xl font-extrabold text-white pt-10 pb-5">Signup</h1>
+                    <h1 class="login-txt text-4xl font-extrabold text-white pb-5">Login</h1>
+                    <h1 class="signup-txt text-4xl font-extrabold text-white pb-5">Signup</h1>
                 </div>
                 <div class="w-full h-3/4 rounded-t-3xl"  style="background: rgba(0,0,0,0.2)">
                     <div class="flex justify-around bg-indigo-500 rounded-t-3xl text-white font-bold">
@@ -51,9 +68,9 @@
                     <div class="login">
                     <div class="w-full h-2/3 pt-5 tb-5 pl-20 r-10 flex justify-center">
                         <form action="/login" class="w-full">
-                            <x-login-component userLabel="UserName" inputType="text" inputPlaceholder="Enter Username"/>
+                            <x-login-component userLabel="Email Id" inputType="email" inputPlaceholder="Enter Your Email" name="LoginuserEmail"/>
                             <br><br>
-                            <x-login-component userLabel="Password" inputType="password" inputPlaceholder="Enter Password"/>
+                            <x-login-component userLabel="Password" inputType="password" inputPlaceholder="Enter Password" name="LoginPassword"/>
                             <br><br>
                             
                             <button class="flex justify-center w-4/5 cursor-default"><a href="" class="bg-indigo-900 hover:bg-indigo-500 text-white pl-8 pr-8 pt-2 pb-2 font-extrabold rounded-xl">Login</a></button>
@@ -63,18 +80,21 @@
                         Forgot Password ? | Back to <a href="/" class="pl-1 text-indigo-500">Home</a>
                     </div>
                     </div>
-
                     <div class="register">
+                        
                         <div class="w-full h-full pt-2  pl-20 r-10 flex justify-center">
-                            <form action="" class="w-full">
-                                <x-login-component userLabel="Email Id" inputType="email" inputPlaceholder="Enter your Email"/>
+                            <form action="{{ url('/') }}/register" method="post" class="reg-form w-full">
+                                @csrf
+                                <x-login-component userLabel="Email Id" inputType="email" inputPlaceholder="Enter your Email" name="userEmail"/>
                                 <br>
-                                <x-login-component userLabel="Password" inputType="password" inputPlaceholder="Enter Password"/>
+                                <x-login-component userLabel="Password" inputType="password" inputPlaceholder="Enter Password" name="userPassword"/>
                                 <br>
-                                <x-login-component userLabel="Password" inputType="password" inputPlaceholder="Enter Confirm Password"/>
+                                <x-login-component userLabel="Confirm Password" inputType="password" inputPlaceholder="Enter Confirm Password" name="ConfirmPassword"/>
                                 <br>
                                 
-                                <button class="flex justify-center w-4/5 cursor-default"><a href="" class="bg-indigo-900 hover:bg-indigo-500 text-white pl-8 pr-8 pt-2 pb-2 font-extrabold rounded-xl">SignUp</a></button>
+                                <button class="flex justify-center w-4/5 bg-indigo-900 hover:bg-indigo-500 text-white pl-8 pr-8 pt-2 pb-2 font-extrabold rounded-xl">
+                                        SignUp
+                                </button>
                             </form>   
                         </div><br>
                         <div class="w-full flex justify-center text-white">
@@ -109,6 +129,8 @@
                 $(".login-txt").hide();
             });
         });
+
+        
     </script>
 </body>
 </html>

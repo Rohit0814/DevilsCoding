@@ -11,11 +11,13 @@ class LoginComponent extends Component
     public $userLabel;
     public $inputType;
     public $inputPlaceholder;
-    public function __construct($userLabel,$inputType,$inputPlaceholder)
+    public $name;
+    public function __construct($userLabel,$inputType,$inputPlaceholder,$name)
     {
         $this->userLabel=$userLabel;
         $this->inputType = $inputType;
         $this->inputPlaceholder = $inputPlaceholder;
+        $this->name = $name;
     }
 
     /**
