@@ -1,5 +1,31 @@
 <head>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <style>
+      .login-menu{
+        text-align: left;
+        position: absolute;
+        top:25px;
+        right:40px;
+        font-weight: bolder
+      }
+
+      .login-menu ul ul{
+        background: white;
+        padding: 5px 20px;
+        display: none;
+      }
+
+      .login-menu ul ul li{
+        padding: 10px 5px;
+      }
+
+      .login-menu ul ul li:hover{
+        color:red;
+      }
+
+    </style>
+
 </head>
 
 
@@ -48,9 +74,17 @@
         </div>
         <div class="text-center items-center sm:static sm:inset-auto sm:ml-6 sm:pr-0">
           <!-- Profile dropdown -->
-          <div class="relative ">
+          <div class="login-menu relative ">
             <div>
-              <h1 class="font-bold pl-3 pr-3 pt-1 pb-1 rounded cursor-pointer hover:bg-indigo-800 bg-indigo-500 text-white"><a href="/login">Login</a></h1>
+              <ul>
+                <li style="width:160px"> <span style="cursor: pointer">LOG IN <i class="fa-solid fa-chevron-down"></i></a></span>
+                  <ul class="drop-menu">
+                    <a href="/publisher"><li>As a Publisher</li></a>
+                    <a href="/login"><li>As a users</li></a>
+                    <a href="#"><li>As a Student</li></a>
+                  </ul>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -76,4 +110,18 @@
     $("#hammer").click(function() {
         $("#mobile-menu").slideToggle(500);
     });
+
+
+    $(document).ready(function() {
+      $(".login-btn").click(function() {
+        $(".drop-menu").slideToggle(500);
+      });
+      $(document).on("click", function(event) {
+        if (!$(event.target).closest('.login-btn').length && !$(event.target).closest('.drop-menu').length) {
+          $(".drop-menu").slideToggle(500);
+        }
+      });
+    });
+
+    
   </script>

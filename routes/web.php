@@ -31,3 +31,5 @@ Route::get('/blog',[TestController::class,'blog']);
 Route::get('/login',[TestController::class,'login']);
 
 Route::post("/register",[LoginController::class,'register']);
+
+Route::get("/publisher",[TestController::class,'publisher']);

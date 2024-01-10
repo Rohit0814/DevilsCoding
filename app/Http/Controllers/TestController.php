@@ -33,4 +33,8 @@ class TestController extends Controller
     public function login(){
         return view('Login');
     }
+
+    public function publisher(){
+        return view('Publisher');
+    }
 }
